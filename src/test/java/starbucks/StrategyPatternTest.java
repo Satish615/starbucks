@@ -17,7 +17,7 @@ import org.junit.Test;
 public class StrategyPatternTest
 {
     IApp app ;
-    
+
     /**
      * Default constructor for test class StrategyPatternTest
      */
@@ -41,27 +41,38 @@ public class StrategyPatternTest
     public void testLandscape()
     {
         // Login to App
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+        // Put in Landscape Mode
+        app.landscape();
 
-        // Put in Landscape Mode   
-
-        // Validate App is in Landscape Mode 
+        // Validate App is in Landscape Mode
         // (replace with correct assert)
-        assertTrue( false ) ;     
+        app.execute("B");
+        System.out.print(app.screen());
+        assertNotEquals("Payments", app.screen());
     }
 
     @Test
     public void testPortrait()
     {
         // Login to App
-
-        // Put in Portrait Mode   
-
-        // Validate App is in Landscape Mode 
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+        // Put in Portrait Mode
+        app.portrait();
+        // Validate App is in Landscape Mode
         // (replace with correct assert)
-        assertTrue( false ) ;       
+        app.execute("B");
+        assertEquals("Payments", app.screen());
+
     }
 
-    
+
     /**
      * Tears down the test fixture.
      *
