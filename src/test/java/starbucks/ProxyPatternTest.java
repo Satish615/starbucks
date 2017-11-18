@@ -44,9 +44,18 @@ public class ProxyPatternTest
         // Test Successful Pin:  
         // (enter correct pin digits)
 
-        // Validate Pin Succeeded 
-        // (replace with correct assert)
-        assertTrue( false ) ;
+
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+        //app.authEvent();
+        if (app.screen().equals("MyCards")) {
+            // Validate Pin Succeeded
+            // (replace with correct assert)
+            assertTrue(true);
+        }
+        else assertTrue(false);
     }
 
     @Test
@@ -57,7 +66,17 @@ public class ProxyPatternTest
 
         // Validate Pin Succeeded 
         // (replace with correct assert)
-        assertTrue( false ) ;
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,4) ;
+        //app.authEvent();
+        if (app.screen().equals("MyCards")) {
+            // Validate Pin Succeeded
+            // (replace with correct assert)
+            assertTrue(false);
+        }
+        else assertTrue(true);
     }
 
     
