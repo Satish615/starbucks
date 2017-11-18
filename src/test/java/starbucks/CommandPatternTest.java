@@ -1,6 +1,3 @@
-
-
-
 package starbucks ;
 
 
@@ -18,13 +15,14 @@ import org.junit.Test;
 public class CommandPatternTest
 {
     IApp app ;
-    
+
     /**
      * Default constructor for test class CommandPatternTest
      */
     public CommandPatternTest()
     {
     }
+
 
     /**
      * Sets up the test fixture.
@@ -35,6 +33,7 @@ public class CommandPatternTest
     public void setUp()
     {
         app = new AppAuthProxy() ;
+
     }
 
 
@@ -42,69 +41,79 @@ public class CommandPatternTest
     public void testMyCards()
     {
         // Login with pin
-
-        // Select Menu "A"
+        app.display();
         app.touch(1,5) ;
         app.touch(2,5) ;
         app.touch(3,5) ;
         app.touch(1,6) ;
-        // Put in Landscape Mode
-        app.portrait();
 
-        // Validate App is in Landscape Mode
-        // (replace with correct assert)
+        // Select Menu "A"
         app.execute("A");
- 
+
         // Assertion
-        assertEquals("MyCards", app.screen());            
+        assertEquals("MyCards", app.screen());
     }
 
     @Test
     public void testPayments()
     {
         // Login with pin
-
-        // Select Menu "B"
-        // Login to App
+        app.display();
         app.touch(1,5) ;
         app.touch(2,5) ;
         app.touch(3,5) ;
         app.touch(1,6) ;
-        // Put in Landscape Mode
-        app.portrait();
 
-        // Validate App is in Landscape Mode
-        // (replace with correct assert)
+        // Select Menu "B"
+        app.portrait();
         app.execute("B");
- 
         // Assertion
-        assertEquals("Payments", app.screen());            
+        assertEquals("Payments", app.screen());
     }
 
-  @Test
+    @Test
     public void testRewards()
     {
         assertEquals("PinScreen", app.screen());
         // Login with pin
+        app.display();
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+
+
 
         // Select Menu "C"
- 
+        app.portrait();
+        app.execute("C");
+
+
         // Assertion 
-        assertEquals("Rewards", app.screen());            
+        assertEquals("Rewards", app.screen());
     }
 
-  @Test
+    @Test
     public void testStore()
     {
+        assertEquals("PinScreen", app.screen());
         // Login with pin
+        app.display();
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
 
-        // Select Menu "D"
- 
+
+        // Select Menu "C"
+        app.portrait();
+        app.execute("D");
+
         // Assertion 
-        assertEquals("Store", app.screen());            
+        assertEquals("Store", app.screen());
     }
 
-    
+
     /**
      * Tears down the test fixture.
      *
