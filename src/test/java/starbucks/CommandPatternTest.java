@@ -44,6 +44,16 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "A"
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+        // Put in Landscape Mode
+        app.portrait();
+
+        // Validate App is in Landscape Mode
+        // (replace with correct assert)
+        app.execute("A");
  
         // Assertion
         assertEquals("MyCards", app.screen());            
@@ -55,6 +65,17 @@ public class CommandPatternTest
         // Login with pin
 
         // Select Menu "B"
+        // Login to App
+        app.touch(1,5) ;
+        app.touch(2,5) ;
+        app.touch(3,5) ;
+        app.touch(1,6) ;
+        // Put in Landscape Mode
+        app.portrait();
+
+        // Validate App is in Landscape Mode
+        // (replace with correct assert)
+        app.execute("B");
  
         // Assertion
         assertEquals("Payments", app.screen());            
